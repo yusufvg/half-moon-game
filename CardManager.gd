@@ -71,7 +71,7 @@ func raycast_check_for_card():
 	parameters.collision_mask = COLLISION_MASK_CARD
 	var result = space_state.intersect_point(parameters)
 	if (result.size() > 0):
-		return result[0].collider.get_parent()
+		return get_card_with_highest_z_index(result)
 	return null
 
 func get_card_with_highest_z_index(cards):
@@ -83,4 +83,5 @@ func get_card_with_highest_z_index(cards):
 		if current_card.z_index > top_index:
 			top_card = current_card
 			top_index = top_card.z_index
-			
+	
+	return top_card
