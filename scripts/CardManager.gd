@@ -40,19 +40,17 @@ func finish_drag():
 		card_being_dragged.position = slot.position
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		slot.card_in_slot = true
-	
+	 
 	card_being_dragged = null
 
 func connect_card_signals(card):
 	card.connect('hovered', on_hovered_card)
 	card.connect('hovered_off', on_hovered_off_card)
-	
 
 func on_hovered_card(card):
 	if !is_hovering_on_card:
 		is_hovering_on_card = true
 		highlight_card(card, true)
-	
 
 func on_hovered_off_card(card):
 	highlight_card(card, false)
@@ -62,7 +60,6 @@ func on_hovered_off_card(card):
 		highlight_card(new_card_hovered, true)
 	else:
 		is_hovering_on_card = false
-	
 
 func highlight_card(card, hovered):
 	if hovered:
